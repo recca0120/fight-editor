@@ -15,7 +15,8 @@ use GuzzleHttp\Client;
 
 Route::get('/', function () {
     $client = new Client();
-    dump($client->request('GET', 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', [
+    $response = $client->request('GET', 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', [
         'headers' => ['X-CMC_PRO_API_KEY' => '8fd8b63a-b087-4419-985e-2d37557bde36'],
-    ]));
+    ]);
+    dump($response->getBody()->getContents());
 });
