@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\Client;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Client $client) {
+    return $client->query();
 });
